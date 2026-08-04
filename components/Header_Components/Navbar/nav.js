@@ -1,4 +1,5 @@
-import { updateButton } from "../../../script.js";
+import {  updateButton, } from "../../../script.js";
+
 
 export function navHamburgerUI(){
     const container = document.createElement('aside');
@@ -49,21 +50,28 @@ export function registerUI(){
     document.body.append(registerContainer);
 }
 
+
 // sotorage feature
 
 export function Set_Information_Localstorage(){
     const register_form = document.querySelector('.register_form');
     register_form.addEventListener('submit',(e)=>{
         e.preventDefault();
-        const username = document.getElementById('email').value;
-        const password = document.getElementById('pass').value;
-        let user = {
+        const username = document.getElementById("email");
+        const password = document.getElementById("pass");
+        if(username.value && password.value){
+            let user = {
             username,
             password
+            }
+            localStorage.setItem("user",JSON.stringify(user));
+            updateButton();
+            alert("User Register Successfully...");
+            document.querySelector('.register_container').remove();
         }
-        localStorage.setItem("user",JSON.stringify(user));
-        updateButton();
-        alert("User Register Successfully...");
-        document.querySelector('.register_container').remove();
+        else {
+            alert("Please Enter Email & Password");
+        }
+        
     })
 }

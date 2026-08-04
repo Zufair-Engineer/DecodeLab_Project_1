@@ -104,7 +104,7 @@ button:hover{
 
 .register_container{
     width: 350px;
-    position: absolute;
+    position: fixed;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
@@ -171,8 +171,18 @@ input{
     #hamburger{
         display:block;
     }
+    .register_container{
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .register_container button{
+        display: block;
+    }
 }
-@media (min-width: 596px) and (max-width: 767px) {
+
+
+@media (min-width: 596px) and (max-width: 850px) {
     .logo_container .logo_img{
     width:50px;
     }
@@ -184,14 +194,19 @@ input{
     font-size:16px;
     }
     .list{
-        font-size: 16px;
+        font-size: 10px;
     }
     button{
         display: block;
-        font-size: 16px;
+        font-size: 10px;
     }
     #hamburger{
         display: none;
+    }
+    .register_container{
+        left: 40%;
+        top: 50%;
+        transform: translate(-30%, -30%);
     }
 }
 

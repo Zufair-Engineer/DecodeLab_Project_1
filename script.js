@@ -1,10 +1,12 @@
 import { navHamburgerUI, registerUI, Set_Information_Localstorage } from "./components/Header_Components/Navbar/nav.js";
 
+
 const components = [
-    ['navbar' , './components/Header_Components/Navbar/navbar.html'],
     ['hero' , './components/Header_Components/Hero_section/hero.html'],
+    ['navbar' , './components/Header_Components/Navbar/navbar.html'],
     ['about' , './components/Main_Container_Components/About_section/about.html']
 ]
+
 
 // Load Component Feature
 async function loadComponents (id , path){
@@ -14,7 +16,7 @@ async function loadComponents (id , path){
             throw new Error(`Cannot Load path ${path}`);
         }
         document.getElementById(id).innerHTML = await response.text();
-        if(id === "navbar"){
+        if(id === "navbar" && "hero"){
             hamberFeature();
             signUpFeature();
         }
@@ -52,10 +54,12 @@ function hamberFeature(){
 // Register Feature
 let isRegisterShow = false;
 function signUpFeature(){
-    const navBtn = document.querySelector('.nav_btn');
+    const navBtn = document.querySelectorAll('.nav_btn');
+    console.log("btn_length : ",navBtn.length);
     updateButton();
     
-    navBtn.addEventListener('click',()=>{
+    navBtn.forEach((btn)=>{
+        btn.addEventListener('click',()=>{
         
         // Already Login
         if(localStorage.getItem("user")){
@@ -66,7 +70,8 @@ function signUpFeature(){
         }
 
         // Register User
-        if(!isRegisterShow && navBtn.textContent == "Get Started"){
+        if(!isRegisterShow && btn.textContent == "Get Started"){
+            
             registerUI();
             Set_Information_Localstorage();    
             isRegisterShow = true;
@@ -75,12 +80,15 @@ function signUpFeature(){
             isRegisterShow = false;
         }
     })
+    })
 }
 
 // Update the Text Of Button
 export function updateButton(){
-    const navBtn = document.querySelector('.nav_btn');
-    navBtn.textContent = localStorage.getItem("user") 
+    const navBtn = document.querySelectorAll('.nav_btn');
+    navBtn.forEach((btn)=>{
+        btn.textContent = localStorage.getItem("user") 
             ? "Log Out"
             : "Get Started";
+    })
 }

@@ -1,0 +1,151 @@
+.hero-container{
+    margin-top: 55px;
+    width:100%;
+    background-color: #3b291b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    padding: 20px 20px;
+    overflow: hidden;
+}
+.img-container{
+    width:50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    opacity:0;
+    transform:translateX(100px);
+
+    animation:imageSlide 1.2s ease forwards;
+}
+.img-container img{
+    width:81%;
+}
+.text-container{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+    gap: 5px;
+    padding: 5px 20px;
+}
+.text-container h1{
+    text-align: start;
+    color: #f6f1ed;
+    font-family: 'Roboto';
+    font-size: 3rem;
+
+    opacity:0;
+    transform:translateX(-100px);
+
+    animation:textSlide 0.8s ease forwards;
+}
+.text-container p{
+    user-select: none;
+    padding-right: 70px;
+    color:#d4c9c0;
+    margin-bottom: 7px;
+
+    opacity:0;
+    transform:translateX(-100px);
+
+    animation:textSlide 0.8s ease forwards;
+    animation-delay:0.5s;
+}
+.text-container button{
+    width: fit-content;
+    padding: 10px 20px;
+    border-radius: 7px;
+
+    opacity:0;
+    transform:translateX(-100px);
+
+    animation:textSlide 0.8s ease forwards;
+    animation-delay:1s;
+}
+
+
+/* Mobile view */
+
+@media screen and (max-width: 595px){
+    .hero-container {
+        padding: 5px;
+    }
+    .img-container {
+        justify-content: flex-end;
+    }
+    .img-container img{
+        width: 85%;
+    }
+    .text-container{
+        gap: 0px;
+    }
+    .text-container h1{
+        font-size: 1rem;
+    }
+    .text-container p{
+        font-size: 10px;
+        padding-right: 5px;
+    }
+    .text-container button{
+        display: block;
+        width: 100%;
+        font-size: 10px;
+    }
+}
+
+@media (min-width:596px) and (max-width: 850px){
+    .hero-container {
+        padding: 5px;
+    }
+    .img-container {
+        justify-content: flex-end;
+    }
+    .img-container img{
+        width: 85%;
+    }
+    .text-container{
+        gap: 0px;
+    }
+    .text-container h1{
+        font-size: 2rem;
+    }
+    .text-container p{
+        font-size: 16px;
+        padding-right: 5px;
+        margin-bottom: 10px;
+    }
+    .text-container button{
+        display: block;
+        width: fit-content;
+        font-size: 10px;
+    }   
+}
+
+
+/* ================= Keyframes ================= */
+
+@keyframes textSlide{
+    from{
+        opacity:0;
+        transform:translateX(-100px);
+    }
+    to{
+        opacity:1;
+        transform:translateX(0);
+    }
+}
+
+@keyframes imageSlide{
+    from{
+        opacity:0;
+        transform:translateX(100px);
+    }
+    to{
+        opacity:1;
+        transform:translateX(0);
+    }
+}
