@@ -1,6 +1,7 @@
 .hero-container{
     margin-top: 55px;
     width:100%;
+    min-height: 82%;
     background-color: #3b291b;
     display: flex;
     justify-content: center;
@@ -21,7 +22,7 @@
     animation:imageSlide 1.2s ease forwards;
 }
 .img-container img{
-    width:81%;
+    width:82%;
 }
 .text-container{
     width: 40%;

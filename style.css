@@ -6,22 +6,13 @@
 }
 body{
     width:100%;
-    height: 100vh;
     overflow-x: hidden;
 }
-.flex_center{
-    display: flex;
-    justify-content:center;
-    align-items:center;
-}
-.flex_colm{
-    display: flex;
-    flex-direction:column;
-    justify-content:center;
-}
+
+/* style the Header Container */
+
 .header_container{
     width:100%;
-    height: 100%;
 }
 .nav_bar{
     width:100%;
@@ -31,9 +22,21 @@ body{
     z-index: 99;
 }
 
-
-
 header .hero_section{
     width:100%;
+}
+
+/* style the Main Section */
+
+.main_container{
+    width: 100%;
+    background-color: #f8f4f1;
+    padding: 10px 40px;
+}
+
+@media screen and (max-width: 595px){
+    .main_container{
+        padding: 20px 10px;
+    }
 }
 
