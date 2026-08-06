@@ -7,6 +7,10 @@
 body{
     width:100%;
     overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 /* style the Header Container */
@@ -43,6 +47,15 @@ header .hero_section{
 .contact_section{
     width: 100%;
     display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer{
+    width: 100%;
+    padding: 0px 40px;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }

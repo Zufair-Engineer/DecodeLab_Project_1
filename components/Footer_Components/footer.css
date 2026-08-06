@@ -1,14 +1,13 @@
 
 /* Footer Container */
 .footer_container {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 40px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
   background: #3b2a1a; /* Dark brown */
   color: #fff;
   padding: 10px 5px;
   animation: fadeIn 1.2s ease-in-out;
-  margin: 0px 40px;
 }
 
 /* Company Info */
@@ -103,6 +102,7 @@
 
 /* Bottom Bar */
 .footer_bottom {
+  width: 100%;
   background: #2a1d12;
   color: #ccc;
   display: flex;
@@ -110,6 +110,7 @@
   align-items: center;
   padding: 20px 40px;
   font-size: 14px;
+  margin: 0px 40px;
 }
 
 .footer_bottom .bottom_links a {
@@ -132,14 +133,18 @@
 /* Responsive */
 @media (max-width: 1000px) {
   .footer_container {
-    grid-template-columns: 1fr 1fr;
+    flex-wrap: wrap;
     gap: 30px;
+  }
+  .footer_bottom{
+    width: 100%;
+    margin: 0x 40px;
   }
 }
 
 @media (max-width: 600px) {
   .footer_container {
-    grid-template-columns: 1fr;
+    flex-direction: column;
   }
   .footer_bottom {
     flex-direction: column;
