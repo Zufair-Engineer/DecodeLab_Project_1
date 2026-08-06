@@ -4,7 +4,8 @@ import { navHamburgerUI, registerUI, Set_Information_Localstorage } from "./comp
 const components = [
     ['hero' , './components/Header_Components/Hero_section/hero.html'],
     ['navbar' , './components/Header_Components/Navbar/navbar.html'],
-    ['about' , './components/Main_Container_Components/About_section/about.html']
+    ['about' , './components/Main_Container_Components/About_section/about.html'],
+    ['services' ,'./components/Main_Container_Components/Services_section/services.html' ],
 ]
 
 
