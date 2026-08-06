@@ -40,3 +40,9 @@ header .hero_section{
     }
 }
 
+.contact_section{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

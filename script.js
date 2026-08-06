@@ -6,6 +6,9 @@ const components = [
     ['navbar' , './components/Header_Components/Navbar/navbar.html'],
     ['about' , './components/Main_Container_Components/About_section/about.html'],
     ['services' ,'./components/Main_Container_Components/Services_section/services.html' ],
+    ['blog' , './components/Main_Container_Components/Blog_section/blog.html'],
+    ['contact' , './components/Main_Container_Components/Contact_section/contact.html'],
+    ['footer' , './components/Footer_Components/footer.html']
 ]
 
 
