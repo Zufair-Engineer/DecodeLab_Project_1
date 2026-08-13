@@ -74,4 +74,4 @@ Inspired by peers and mentors at **Devsinc, Arbisoft Systems Limited, 10Pearls, 
 ---
 
 ## 📌 License
-© 2024 Architect Website. All rights reserved.
+© 2026 Zufair Shafique & DecodeLabs Website. All rights reserved.
