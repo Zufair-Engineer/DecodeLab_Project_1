@@ -53,7 +53,7 @@ header .hero_section{
 
 footer{
     width: 100%;
-    padding: 0px 40px;
+    /* padding: 0px 40px; */
     display: flex;
     flex-direction: column;
     justify-content: center;
