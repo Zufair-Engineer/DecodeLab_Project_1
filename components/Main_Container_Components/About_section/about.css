@@ -79,7 +79,6 @@
 }
 .content_card{
     display: flex;
-    gap:10px;
     /* border-right: 1px solid #6f5a4d; */
 }
 .icon{
