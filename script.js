@@ -36,55 +36,206 @@ components.forEach((component)=>{
 })
 
 
-// Hamberger Feature In Mobile
-let isMenueOpen = false;
-function hamberFeature(){
-    const hamburger = document.getElementById("hamburger")
-    console.log("hi I am Hambergur")
-    if(!hamburger){
+// // Hamberger Feature In Mobile
+// let isMenueOpen = false;
+// function hamberFeature(){
+//     const hamburger = document.getElementById("hamburger")
+//     console.log("hi I am Hambergur")
+//     if(!hamburger){
+//         console.log("Hamburger Not Found....");
+//     }
+//     hamburger.addEventListener('click', () => {
+//         if(!isMenueOpen){
+//             navHamburgerUI();
+//             isMenueOpen = true;
+//         }else{
+//             document.querySelector('.aside_container').remove();
+//             isMenueOpen = false;
+//         }
+//     })
+// }
+
+// if(isMenueOpen){
+//     window.addEventListener('click',()=>{
+//     document.querySelector('.aside_container').remove();
+//     isMenueOpen = false;
+// })
+// }
+
+
+let isMenuOpen = false;
+
+function hamberFeature() {
+    const hamburger = document.getElementById("hamburger");
+
+    if (!hamburger) {
         console.log("Hamburger Not Found....");
+        return;
     }
-    hamburger.addEventListener('click', () => {
-        if(!isMenueOpen){
+
+    hamburger.addEventListener("click", (e) => {
+        e.stopPropagation();
+
+        if (!isMenuOpen) {
             navHamburgerUI();
-            isMenueOpen = true;
-        }else{
-            document.querySelector('.aside_container').remove();
-            isMenueOpen = false;
+            isMenuOpen = true;
+        } else {
+            closeMenu();
         }
-    })
+    });
+
+    // Close menu when clicking outside
+    window.addEventListener("click", (e) => {
+        const aside = document.querySelector(".aside_container");
+
+        if (
+            isMenuOpen &&
+            aside &&
+            !aside.contains(e.target) &&
+            e.target !== hamburger
+        ) {
+            closeMenu();
+        }
+    });
 }
 
-// Register Feature
-let isRegisterShow = false;
-function signUpFeature(){
-    const navBtn = document.querySelectorAll('.nav_btn');
-    console.log("btn_length : ",navBtn.length);
-    updateButton();
-    
-    navBtn.forEach((btn)=>{
-        btn.addEventListener('click',()=>{
-        
-        // Already Login
-        if(localStorage.getItem("user")){
-            localStorage.removeItem("user");
-            alert("User Logout Successfully...");
-            updateButton();
-            return;
-        }
+function closeMenu() {
+    const aside = document.querySelector(".aside_container");
 
-        // Register User
-        if(!isRegisterShow && btn.textContent == "Get Started"){
+    if (aside) {
+        aside.remove();
+    }
+
+    isMenuOpen = false;
+}
+
+
+
+// // Register Feature
+// let isRegisterShow = false;
+// function signUpFeature(){
+//     const navBtn = document.querySelectorAll('.nav_btn');
+//     console.log("btn_length : ",navBtn.length);
+//     updateButton();
+    
+//     navBtn.forEach((btn)=>{
+//         btn.addEventListener('click',()=>{
+        
+//         // Already Login
+//         if(localStorage.getItem("user")){
+//             localStorage.removeItem("user");
+//             alert("User Logout Successfully...");
+//             updateButton();
+//             return;
+//         }
+
+//         // Register User
+//         if(!isRegisterShow && btn.textContent == "Get Started"){
             
-            registerUI();
-            Set_Information_Localstorage();    
-            isRegisterShow = true;
-        }else{
-            document.querySelector('.register_container').remove();
-            isRegisterShow = false;
+//             registerUI();
+//             Set_Information_Localstorage();    
+//             isRegisterShow = true;
+//         }else{
+//             document.querySelector('.register_container').remove();
+//             isRegisterShow = false;
+//         }
+//     })
+//     })
+// }
+
+// function closeRegisterUI(){
+//     const register_container = document.querySelector('.register_container');
+
+//     if(register_container){
+//         register_container.remove();
+//     }
+//     isRegisterShow = false;
+// }
+
+
+
+let isRegisterShow = false;
+
+function signUpFeature() {
+    const navBtn = document.querySelectorAll(".nav_btn");
+
+    console.log("btn_length:", navBtn.length);
+
+    if (!navBtn.length) {
+        console.log("Navigation Button Not Found....");
+        return;
+    }
+
+    updateButton();
+
+    navBtn.forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+            e.stopPropagation();
+
+            const buttonText = btn.textContent.trim();
+
+            // =========================
+            // Already Login → Logout
+            // =========================
+            if (localStorage.getItem("user")) {
+                localStorage.removeItem("user");
+
+                alert("User Logout Successfully...");
+
+                updateButton();
+                return;
+            }
+
+            // =========================
+            // Open Register UI
+            // =========================
+            if (!isRegisterShow && buttonText === "Get Started") {
+                registerUI();
+                Set_Information_Localstorage();
+
+                isRegisterShow = true;
+            }
+
+            // =========================
+            // Close Register UI
+            // =========================
+            else if (isRegisterShow) {
+                closeRegisterUI();
+            }
+        });
+    });
+
+    // =========================
+    // Close Register UI
+    // When clicking outside
+    // =========================
+    window.addEventListener("click", (e) => {
+        const registerContainer =
+            document.querySelector(".register_container");
+
+        if (
+            isRegisterShow &&
+            registerContainer &&
+            !registerContainer.contains(e.target)
+        ) {
+            closeRegisterUI();
         }
-    })
-    })
+    });
+}
+
+
+// =========================
+// Close Register UI
+// =========================
+function closeRegisterUI() {
+    const registerContainer =
+        document.querySelector(".register_container");
+
+    if (registerContainer) {
+        registerContainer.remove();
+    }
+
+    isRegisterShow = false;
 }
 
 // Update the Text Of Button
